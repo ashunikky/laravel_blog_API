@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('category');
             $table->string('title');
             $table->text('content');
+            $table->unsignedBigInteger('user_id');
             $table->string('tags')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

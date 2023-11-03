@@ -17,5 +17,6 @@ use App\Http\Controllers\UserController;
 
 Route::post('/register', [UserController::class, 'createUser']);
 Route::post('/login', [UserController::class, 'loginUser']);
+Route::get('/user/{id}',[UserController::class,'showUser']);
 
 Route::apiResource('/blog', BlogController::class);

@@ -11,6 +11,21 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function showUser($id)
+    {
+        // Retrieve the user from the database based on the provided ID
+        $user = User::find($id);
+
+        if ($user) {
+            // If the user with the given ID is found, return the user data
+            return response()->json($user);
+        } else {
+            // If the user is not found, return a 404 response
+            return response()->json(['error' => 'User not found'], 404);
+        }
+    }
+   
+   
     /**
      * Create User
      * @param Request $request
@@ -89,6 +104,7 @@ class UserController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
+                'id' => $user->id,
                 'token' => $user->createToken("API TOKEN")->plainTextToken
             ], 200);
 

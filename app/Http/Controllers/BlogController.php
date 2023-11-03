@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\User;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,9 @@ class BlogController extends Controller
     }
     public function index()
     {
-        return $this->blog->all();
+        $blogs = Blog::with('user')->get();
+        return $blogs;
+       
     }
 
     public function store(Request $request)
@@ -24,7 +27,8 @@ class BlogController extends Controller
 
     public function show(string $id)
     {
-        $blog = $this->blog->find($id);
+        $blog = Blog::with('user')->find($id); // Eager loading user data
+
         return $blog;
     }
 

@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $table = 'blogs';
-  protected $primaryKey = 'id';
-   protected $fillable = [
+    protected $primaryKey = 'id';
+    protected $fillable = [
         'category',
         'title',
         'content',
-        'tags'
+        'tags',
+        'user_id'
     ];
     use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
