@@ -105,6 +105,7 @@ class UserController extends Controller
                 'status' => true,
                 'message' => 'User Logged In Successfully',
                 'id' => $user->id,
+                'name' => $user->name,
                 'token' => $user->createToken("API TOKEN")->plainTextToken
             ], 200);
 
