@@ -43,4 +43,14 @@ class BlogController extends Controller
         $blog = $this->blog->find($id);
         return $blog->delete();
     }
+    public function addComment(Request $request, Blog $blog)
+    {
+        $request->validate([
+            'body' => 'required|string',
+        ]);
+
+        $comment = $blog->comment($request->input('body'));
+
+        return response()->json($comment, 201);
+    }
 }

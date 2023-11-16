@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +21,9 @@ Route::post('/login', [UserController::class, 'loginUser']);
 Route::get('/user/{id}',[UserController::class,'showUser']);
 
 Route::apiResource('/blog', BlogController::class);
+Route::post('/blog/{blog}/comments', [BlogController::class, 'addComment']);
+
+
+
+
+

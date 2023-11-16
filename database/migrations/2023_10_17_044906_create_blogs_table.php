@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->enum('category', ['Technology', 'Travel', 'Food', 'Lifestyle', 'Fashion', 'Health', 'Science', 'Sports','Other']);
             $table->string('title');
             $table->text('content');
             $table->unsignedBigInteger('user_id');
