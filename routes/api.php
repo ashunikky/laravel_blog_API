@@ -21,7 +21,12 @@ Route::post('/login', [UserController::class, 'loginUser']);
 Route::get('/user/{id}',[UserController::class,'showUser']);
 
 Route::apiResource('/blog', BlogController::class);
-Route::post('/blog/{blog}/comments', [BlogController::class, 'addComment']);
+
+Route::get('blog/{blogId}/comments', [CommentController::class, 'getComments']);
+Route::post('blog/{blogId}/comments', [CommentController::class, 'saveComment']);
+Route::put('comments/{commentID}', [CommentController::class, 'updateComment']);
+Route::delete('comments/{commentID}', [CommentController::class, 'deleteComment']);
+
 
 
 
