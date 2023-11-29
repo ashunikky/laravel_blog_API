@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('blog_id');
             $table->unsignedBigInteger('user_id');
+            $table->string('user_name');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->text('content');
             $table->timestamps();

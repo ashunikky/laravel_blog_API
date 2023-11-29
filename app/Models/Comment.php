@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['blog_id', 'user_id', 'parent_id', 'content'];
+    protected $fillable = ['blog_id', 'user_id','user_name','parent_id', 'content'];
 
     public function blog()
     {

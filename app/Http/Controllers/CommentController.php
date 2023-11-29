@@ -22,6 +22,7 @@ class CommentController extends Controller
             'user_id' => $request->input('user_id'),
             'parent_id' => $request->input('parent_id'), // This will be null for top-level comments
             'content' => $request->input('content'),
+            'user_name' => User::findOrFail($request->input('user_id'))->name 
         ]);
 
         return response()->json($comment, 201);

@@ -17,7 +17,6 @@ class Blog extends Model
         'user_id'
     ];
     use HasFactory;
-    // use HasComments;
     
     public function user()
     {
