@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowController;
+/*
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,6 +28,9 @@ Route::get('blog/{blogId}/comments', [CommentController::class, 'getComments']);
 Route::post('blog/{blogId}/comments', [CommentController::class, 'saveComment']);
 Route::put('comments/{commentID}', [CommentController::class, 'updateComment']);
 Route::delete('comments/{commentID}', [CommentController::class, 'deleteComment']);
+
+Route::post('/user/{user}/follow', [FollowController::class,'follow']);
+Route::post('/user/{user}/unfollow', [FollowController::class,'unfollow']);
 
 
 
